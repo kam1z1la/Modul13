@@ -12,8 +12,6 @@ public class Main {
         if(!json.exists())
             json.createNewFile();
 
-
-
         final String URL0 = "https://jsonplaceholder.typicode.com/users";
         System.out.println(InformationAboutUsers.setUser(URI.create(URL0)));
 

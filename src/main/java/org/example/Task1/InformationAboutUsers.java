@@ -18,10 +18,9 @@ public class InformationAboutUsers {
     public static User setUser(URI uri) throws IOException, InterruptedException {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(uri)
-                .POST(HttpRequest.BodyPublishers.ofString(new GsonParse().parse().toString()))
+                .POST(HttpRequest.BodyPublishers.ofString(new GsonParse().parse().get(0).toString()))
                 .build();
         HttpResponse<String> response = CLIENT.send(request,HttpResponse.BodyHandlers.ofString());
-
         System.out.println("Status Code: " + response.statusCode());
         return GSON.fromJson(response.body(), User.class);
     }
