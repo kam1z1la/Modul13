@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.Task1.InformationAboutUsers;
+import org.example.Task3.Titles;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,5 +23,15 @@ public class Main {
         System.out.println("FindUser: " + InformationAboutUsers.findUserByID(URI.create(URL0),2)+ "\n");
         final String URL2 = "https://jsonplaceholder.typicode.com/users?username=%7Busername%7D";
         System.out.println("FindUsername: " + InformationAboutUsers.findUsername(URI.create(URL2),"Bret")+ "\n");
+
+        System.out.println("==============================Task3=====================================");
+
+        File title = new File("usersTitle.json");
+        if(!title.exists())
+            title.createNewFile();
+
+        final String URL3 =  "https://jsonplaceholder.typicode.com/users/1/todos";
+        System.out.println(("SetUser: " + Titles.setUser(URI.create(URL3))+"\n"));
+        System.out.println("AllOpenTask: " + Titles.allOpenTask(URI.create(URL3), 1)+"\n");
     }
 }
