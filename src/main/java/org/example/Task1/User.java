@@ -1,5 +1,7 @@
 package org.example.Task1;
 
+import java.util.Objects;
+
 public class User {
     private final int id;
     private final String name;
@@ -21,25 +23,20 @@ public class User {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-
     public String getUsername() {
         return username;
     }
-
-    public String getEmail() {
-        return email;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id == user.id && Objects.equals(username, user.username);
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public String getWebsite() {
-        return website;
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username);
     }
 
     @Override
