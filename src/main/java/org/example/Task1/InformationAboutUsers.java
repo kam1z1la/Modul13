@@ -2,13 +2,11 @@ package org.example.Task1;
 
 import com.google.gson.Gson;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.nio.file.Path;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -31,10 +29,10 @@ public class InformationAboutUsers {
         return user;
     }
 
-    public static User getUser(URI uri, File file) throws IOException, InterruptedException {
+    public static User getUser(URI uri) throws IOException, InterruptedException {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(uri)
-                .POST(HttpRequest.BodyPublishers.ofFile(Path.of(file.getPath())))
+                .GET()
                 .build();
         HttpResponse<String> response = CLIENT.send(request,HttpResponse.BodyHandlers.ofString());
         System.out.println("Status Code: " + response.statusCode());

@@ -1,10 +1,10 @@
 package org.example.Task3;
 
 public class UserWithTask {
-    private final int userId;
-    private final int id;
-    private final String title;
-    private final boolean completed;
+    private int userId;
+    private int id;
+    private String title;
+    private boolean completed;
 
     public UserWithTask(int userId, int id, String title, boolean completed) {
         this.userId = userId;

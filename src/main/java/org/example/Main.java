@@ -15,7 +15,7 @@ public class Main {
 
         final String URL0 = "https://jsonplaceholder.typicode.com/users";
         System.out.println("SetUser: " + InformationAboutUsers.setUser(URI.create(URL0)) + "\n");
-        System.out.println("GetUser: " + InformationAboutUsers.getUser(URI.create(URL0), json)+ "\n");
+        System.out.println("GetUser: " + InformationAboutUsers.getUser(URI.create(URL0))+ "\n");
         System.out.println("Delete: " + InformationAboutUsers.delete(URI.create(URL0))+ "\n");
         System.out.println("AllUsers: " + InformationAboutUsers.allUsers(URI.create(URL0))+ "\n");
 

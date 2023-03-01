@@ -11,18 +11,20 @@ import java.util.List;
 import static org.example.Task1.InformationAboutUsers.GSON;
 import static org.example.Task1.InformationAboutUsers.users;
 
+
 public class GsonParse {
-    public List<User> parse() {
-        try (BufferedReader br = new BufferedReader(new FileReader("users.json"))) {
-            JsonArray array = GSON.fromJson(br, JsonArray.class);
-           for (JsonElement element : array) {
-                User user = GSON.fromJson(element, User.class);
-                users.add(user);
+        public List<User> parse() {
+            try (BufferedReader br = new BufferedReader(new FileReader("users.json"))) {
+                JsonArray array = GSON.fromJson(br, JsonArray.class);
+                for (JsonElement element : array) {
+                    User user = GSON.fromJson(element, User.class);
+                    users.add(user);
+                }
+                return users;
+            } catch (IOException e) {
+                System.out.println("Problem reading file!");
             }
-            return users;
-        } catch (IOException e) {
-            System.out.println("Problem reading file!");
+            return null;
         }
-        return null;
-    }
+
 }
